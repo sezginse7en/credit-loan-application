@@ -23,11 +23,15 @@ public class CreditLoanSystemApplication {
         final UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         final CorsConfiguration configuration = new CorsConfiguration();
         configuration.addAllowedOrigin("http://localhost:3000");
+        configuration.addAllowedOrigin("http://localhost:3001");
+        configuration.addAllowedOrigin("http://localhost:8080");
         configuration.addAllowedHeader("content-type");
         configuration.addAllowedHeader("accept");
         configuration.setAllowCredentials(true);
         configuration.addAllowedMethod(HttpMethod.GET);
         configuration.addAllowedMethod(HttpMethod.POST);
+        configuration.addAllowedMethod(HttpMethod.PUT);
+        configuration.addAllowedMethod(HttpMethod.DELETE);
         configuration.addAllowedMethod(HttpMethod.OPTIONS);
         source.registerCorsConfiguration("/**",configuration);
         return new CorsFilter(source);
