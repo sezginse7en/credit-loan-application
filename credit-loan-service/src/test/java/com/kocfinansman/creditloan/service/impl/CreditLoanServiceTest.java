@@ -82,16 +82,16 @@ public class CreditLoanServiceTest{
     public void testSuccessfullApplyCreditLoanWhenScoreGT_1000(){
         //given
         when(mockDao.findScoreByTc(anyString())).thenReturn(1500L);
-        when(mockDao.saveCreditLoan(testUserCase3,25000L)).thenReturn(true);
+        when(mockDao.saveCreditLoan(testUserCase3,20000L)).thenReturn(true);
 
         //when
         CreditResult result = service.applyCreditLoan(testUserCase3);
 
         //then
         verify(mockDao,times(1)).findScoreByTc(anyString());
-        verify(mockDao,times(1)).saveCreditLoan(testUserCase3,25000L);
+        verify(mockDao,times(1)).saveCreditLoan(testUserCase3,20000L);
         assertTrue(result.isResult());
-        assertEquals(25000L,result.getLimit());
+        assertEquals(20000L,result.getLimit());
         assertNotNull(result.getMessage());
     }
 
