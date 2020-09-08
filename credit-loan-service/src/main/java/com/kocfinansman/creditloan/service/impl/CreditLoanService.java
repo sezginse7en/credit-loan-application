@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class CreditLoanService implements ICreditLoanService {
 
-    public static final int CREDIT_LIMIT_MULTIPLIER = 5;
+    public static final int CREDIT_LIMIT_MULTIPLIER = 4;
     IUserCreditScoreDao repository;
 
     @Autowired
